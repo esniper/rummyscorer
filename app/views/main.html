@@ -1,0 +1,12 @@
+<label>Number of Players: </label>
+<select ng-options="m for m in n" ng-model="selectedNumberOfPlayers" ng-change="onSelectNumberOfPlayers()"></select>
+
+<div ng-show="selectedNumberOfPlayers" ng-init="onSelectNumberOfPlayers()">
+  <div>Enter name of the players:</div>
+  <form ng-submit="play()">
+    <div ng-repeat="player in players">
+      Player {{player.id}}: <input ng-model="player.name"/>
+    </div>
+    <button type="submit">Play!</button>
+  </form>
+</div>

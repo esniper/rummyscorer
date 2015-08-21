@@ -22,15 +22,19 @@ angular.module('angulartestApp')
 
     $scope.startNewRound = function() {
       // Make sure at least one person has a "0" score
-      var somebodyWon = false;
+      var numberOfZeroes = 0;
       $scope.players.forEach(function(player){
         if ($scope.currentRound[player['id']] == 0) {
-          somebodyWon = true;
+          numberOfZeroes += 1;
         }
       });
-      if (!somebodyWon) {
-        alert('Didn\'t anybody win this game?');
+      if (numberOfZeroes = 0) {
+        alert('One person should have a 0 score.');
         return
+      } else {
+        if (numberOfZeroes > 1) {
+          alert('More than one person has a 0 score.')
+        }
       }
 
       $scope.rounds.push($scope.currentRound);
